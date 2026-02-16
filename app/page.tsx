@@ -8,6 +8,9 @@ export const myGrid = `grid grid-cols-8`;
 
 export const linkClass = `text-blue-600 hover:underline`;
 
+// Revalidate cache every 60 seconds
+// export const revalidate = 60;
+
 export default async function Home() {
   const myProjects: Project[] = await getProjects();
   return (
