@@ -24,6 +24,8 @@ body {
 }
 
 p a{
-  color:blue;
+  color: #155dfc;
+}
+p a:hover{
   text-decoration: underline;
 }

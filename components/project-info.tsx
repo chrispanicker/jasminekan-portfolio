@@ -12,7 +12,7 @@ export const ProjectInfo = ({ project }: { project: Project }) => {
   const projectSlug = searchParams.get("project");
 
   return (
-    <section key={project.slug.current + "-info"} id={`info-${project.slug.current}`} className={`${myGrid} w-full h-full z-10 py-8 gap-4 cursor-pointer`}
+    <section key={project.slug.current + "-info"} id={`info-${project.slug.current}`} className={`${myGrid} w-full h-full z-10 py-8 gap-8 cursor-pointer relative`}
     onClick={()=>{
       projectSlug === project.slug.current ? router.push(`/`) : router.push(`/?project=${project.slug.current}`)
     }}>
@@ -25,8 +25,9 @@ export const ProjectInfo = ({ project }: { project: Project }) => {
             className="w-[12rem] h-auto object-cover col-span-1"
           />
         )}
-        <div className="w-full h-full flex flex-col col-span-4 justify-between items-between">
+        <div className="w-full h-full flex flex-col col-span-4 justify-start items-between">
           <button className="w-full font-bold tracking-tight hover:underline cursor-pointer text-left">{project.title}</button>
+          <br></br>
           <PortableText value={project.description} />
         </div>
         {project.type && <p className="col-span-2">{project.type}</p>}

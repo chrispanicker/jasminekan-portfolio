@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`bg-[var(--background)] text-[var(--foreground)] ${archivo.className} snap-y snap-mandatory overflow-scroll h-screen w-screen`}>
       <body
-        className={`bg-[var(--background)] text-[var(--foreground)]`}
+        className={`bg-[var(--background)] text-[var(--foreground)] leading-[1.2rem]`}
       >
         {children}
       </body>
