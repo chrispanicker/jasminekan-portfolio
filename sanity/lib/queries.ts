@@ -8,6 +8,7 @@ export const getProjects = async () => {
       slug,
       description,
       media,
+      preview,
       type,
       year
     }`,
@@ -19,3 +20,20 @@ export const getProjects = async () => {
   );
   return data;
 };
+
+export const getInfo = async () => {
+  const data = await client.fetch(
+    `*[_type == "info"][0] {
+      title,
+      shareimage,
+      contactEmail,
+      bio
+    }`,
+    {},
+    { 
+      // Revalidate cache every 60 seconds
+      next: { revalidate: 60, tags: ['info'] }
+    }
+  );
+  return data;
+}

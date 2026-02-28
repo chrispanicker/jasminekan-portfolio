@@ -23,8 +23,8 @@ body {
   /* font-family: Arial, Helvetica, sans-serif; */
 }
 
-p a{
-  color: #155dfc;
+a{
+  color: #0000ff;
 }
 p a:hover{
   text-decoration: underline;

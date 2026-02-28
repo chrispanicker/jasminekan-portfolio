@@ -12,13 +12,22 @@ export const ProjectInfo = ({ project }: { project: Project }) => {
   const projectSlug = searchParams.get("project");
 
   return (
-    <section key={project.slug.current + "-info"} id={`info-${project.slug.current}`} className={`${myGrid} w-full h-full z-10 py-8 gap-8 cursor-pointer relative`}
-    onClick={()=>{
-      projectSlug === project.slug.current ? router.push(`/`) : router.push(`/?project=${project.slug.current}`)
+    <section key={project.slug.current + "-info"} id={`info-${project.slug.current}`} className={`${myGrid} group duration-500 w-full h-full z-10 py-8 gap-8 relative ${projectSlug === project.slug.current ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+    onClick={(e)=>{
+      e.stopPropagation(); // Prevent the click from bubbling up to the main container
+      if (projectSlug === project.slug.current) {
+        router.push("/", { scroll: false });
+      } else {
+        router.push(`/?project=${project.slug.current}`, { scroll: false });
+        let projectSection = document.querySelector(`#project-${project.slug.current}`); 
+        setTimeout(() => {
+          projectSection?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      }
     }}>
-        {project.media?.length > 0 && (
+        {project.preview && (
           <Image 
-            src={urlFor(project.media[0].asset._ref).url()}
+            src={urlFor(project.preview.asset._ref).url()}
             alt={`${project.title} cover image`}
             width={1080}
             height={1920}
@@ -26,7 +35,7 @@ export const ProjectInfo = ({ project }: { project: Project }) => {
           />
         )}
         <div className="w-full h-full flex flex-col col-span-4 justify-start items-between">
-          <button className="w-full font-bold tracking-tight hover:underline cursor-pointer text-left">{project.title}</button>
+          <button className="w-full font-bold tracking-tight group-hover:underline cursor-pointer text-left">{project.title}</button>
           <br></br>
           <PortableText value={project.description} />
         </div>

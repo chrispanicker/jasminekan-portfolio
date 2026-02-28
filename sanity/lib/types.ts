@@ -24,5 +24,15 @@ export type Project = {
     alt?: string;
     url: string;
   }[];
+  preview: {
+    _key: string;
+    _type: 'image';
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+    alt?: string;
+    url: string;
+  };
 
 }

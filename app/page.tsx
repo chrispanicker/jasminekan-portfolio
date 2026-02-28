@@ -1,6 +1,6 @@
 import { Gallery } from "@/components/gallery";
 import { Header } from "@/components/header";
-import { getProjects } from "@/sanity/lib/queries";
+import { getInfo, getProjects } from "@/sanity/lib/queries";
 import { Project } from "@/sanity/lib/types";
 import { Suspense } from "react";
 
@@ -13,10 +13,11 @@ export const linkClass = `text-blue-600 hover:underline`;
 
 export default async function Home() {
   const myProjects: Project[] = await getProjects();
+  const myInfo = await getInfo();
   return (
-    <main className={`w-screen lg:px-32 px-4`}>
-      <Header />
+    <main className={`w-screen lg:px-32 px-4`} >
       <Suspense>
+        <Header info={myInfo} />
         <Gallery projects={myProjects} />
       </Suspense>
     </main>
