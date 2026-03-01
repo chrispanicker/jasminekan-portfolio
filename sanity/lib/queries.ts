@@ -27,6 +27,7 @@ export const getInfo = async () => {
       title,
       shareimage,
       contactEmail,
+      resumeLink,
       bio
     }`,
     {},

@@ -17,6 +17,12 @@ export const info = {
         type: 'image'
     },
     {
+      name: 'resumeLink',
+      title: "Resume Link",
+      type: 'url',
+      description: 'A link to your resume, appears in the header.'
+    },
+    {
       name: 'contactEmail',
       title: 'Contact email',
       type: 'string',

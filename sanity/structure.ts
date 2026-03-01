@@ -26,6 +26,9 @@ export const structure: StructureResolver = (S, context) =>
         ),
       // Add other document types except 'projects' and 'info'
       ...S.documentTypeListItems().filter(
-        (item) => !['projects', 'info'].includes(item.getId())
+        (item) => {
+          const id = item.getId?.();
+          return typeof id === 'string' && !['projects', 'info'].includes(id);
+        }
       ),
     ])
