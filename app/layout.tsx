@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`bg-[var(--background)] text-[var(--foreground)] ${archivo.className} snap-y snap-mandatory overflow-scroll h-screen w-screen`}>
+    <html lang="en" className={`bg-[var(--background)] text-[var(--foreground)] ${archivo.className} text-[.9rem] snap-y snap-mandatory overflow-scroll h-screen w-screen`}>
       <body
         className={`bg-[var(--background)] text-[var(--foreground)]`}
       >

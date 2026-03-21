@@ -17,7 +17,7 @@ export const ProjectInfo = ({ project }: { project: Project }) => {
   const transitionClass = "duration-300 transition-all";
 
   return (
-    <section key={project.slug.current + "-info"} id={`info-${project.slug.current}`} className={`${myGrid} row-reverse group duration-500 w-full h-full z-10 py-8 gap-8 relative ${projectSlug === project.slug.current ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+    <section key={project.slug.current + "-info"} id={`info-${project.slug.current}`} className={`${myGrid} row-reverse group duration-500 w-full h-full z-10 py-6 gap-8 relative ${projectSlug === project.slug.current ? "" : "cursor-pointer"}`}
     onClick={(e)=>{
       e.stopPropagation(); // Prevent the click from bubbling up to the main container
       if (projectSlug === project.slug.current) {
