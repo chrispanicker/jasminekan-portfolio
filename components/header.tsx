@@ -4,6 +4,7 @@ import { linkClass, myGrid } from "@/app/page";
 export function Header({ info }: { info: { title: string, shareimage: string, contactEmail: string, resumeLink: string, bio: Array<any> } }) {
   // Get the first block's children and render as inline text
   const firstBlock = info.bio && info.bio[0];
+  console.log(firstBlock)
   const inlineText = firstBlock?.children?.map((child: any) => child.text).join('') || '';
 
   return (

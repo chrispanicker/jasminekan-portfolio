@@ -36,7 +36,7 @@ export const ProjectInfo = ({ project }: { project: Project }) => {
             alt={`${project.title} cover image`}
             width={1080}
             height={1920}
-            className={`w-[12rem] h-auto object-contain col-span-1 max-h-[10rem] self-center lg:order-first order-2 ${blurClass} ${transitionClass}`}
+            className={`w-[12rem] h-auto object-contain col-span-1 max-h-[10rem] self-start lg:order-first order-2 ${blurClass} ${transitionClass}`}
             onLoadingComplete={() => setLoaded(true)}
           />
         )}
