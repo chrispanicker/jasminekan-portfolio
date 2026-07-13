@@ -43,7 +43,9 @@ export const ProjectInfo = ({ project }: { project: Project }) => {
         <div className="w-full h-full flex flex-col col-span-4 justify-start items-between">
           <button className="w-full font-semibold tracking-tight group-hover:underline cursor-pointer text-left">{project.title}</button>
           <br></br>
-          <PortableText value={project.description} />
+          <div className="w-full h-full [&_p:empty]:block [&_p:empty]:min-h-[1em]">
+            <PortableText value={project.description} />
+          </div>
         </div>
         {project.type && <p className="col-span-2 lg:block hidden">{project.type}</p>}
         {project.year && <p className="col-span-1 lg:block hidden">{project.year}</p>}

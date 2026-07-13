@@ -1,18 +1,21 @@
 'use client'
 import { linkClass, myGrid } from "@/app/page";
+import { PortableText } from "next-sanity";
 
 export function Header({ info }: { info: { title: string, shareimage: string, contactEmail: string, resumeLink: string, bio: Array<any> } }) {
   // Get the first block's children and render as inline text
   const firstBlock = info.bio && info.bio[0];
   console.log(firstBlock)
-  const inlineText = firstBlock?.children?.map((child: any) => child.text).join('') || '';
+  // const inlineText = firstBlock?.children?.map((child: any) => child.text).join('') || '';
+
 
   return (
     <header className={`top-0 left-0 w-full h-fit ${myGrid} gap-8 z-100 border-b-1 border-black py-8 pt-16 bg-[var(--background)]`}>
       <div className="col-span-1 lg:block hidden"></div>
       <div className="lg:col-span-4 col-span-4 font-semibold">
         <h3 className="w-full font-semibold">
-          {inlineText} Contact her via{' '}
+          {/* {inlineText} Contact her via{' '} */}
+          <PortableText value={info.bio[0]} />
           <a
             id="email"
             className="cursor-pointer"
