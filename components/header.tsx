@@ -14,8 +14,9 @@ export function Header({ info }: { info: { title: string, shareimage: string, co
       <div className="col-span-1 lg:block hidden"></div>
       <div className="lg:col-span-4 col-span-4 font-semibold">
         <h3 className="w-full font-semibold">
-          {/* {inlineText} Contact her via{' '} */}
           <PortableText value={info.bio[0]} />
+          <br></br>
+          Contact her via{' '}
           <a
             id="email"
             className="cursor-pointer"
