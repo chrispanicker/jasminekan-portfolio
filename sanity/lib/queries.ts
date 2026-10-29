@@ -7,7 +7,17 @@ export const getProjects = async () => {
       title,
       slug,
       description,
-      media,
+      media[]{
+        ...,
+        _type == "muxVideo" => {
+          "asset": asset->{
+            playbackId,
+            status,
+            thumbTime,
+            "aspectRatio": data.aspect_ratio
+          }
+        }
+      },
       preview,
       type,
       year

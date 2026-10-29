@@ -1,3 +1,33 @@
+type SanityAssetReference = {
+  _ref: string
+  _type: 'reference'
+}
+
+type ProjectImage = {
+  _key: string
+  _type: 'image'
+  asset: SanityAssetReference
+  alt?: string
+}
+
+type LegacySanityVideo = {
+  _key: string
+  _type: 'file'
+  asset: SanityAssetReference
+  alt?: string
+}
+
+type MuxVideo = {
+  _key: string
+  _type: 'muxVideo'
+  asset: {
+    playbackId?: string
+    status?: string
+    thumbTime?: number
+    aspectRatio?: string
+  } | null
+}
+
 export type Project = {
   _key: string;
   title: string;
@@ -14,25 +44,12 @@ export type Project = {
       text: string;
     }[];
   }[];
-  media: {
-    _key: string;
-    _type: 'image' | 'file';
-    asset: {
-      _ref: string;
-      _type: 'reference';
-    };
-    alt?: string;
-    url: string;
-  }[];
+  media: (ProjectImage | LegacySanityVideo | MuxVideo)[];
   preview: {
     _key: string;
     _type: 'image';
-    asset: {
-      _ref: string;
-      _type: 'reference';
-    };
+    asset: SanityAssetReference;
     alt?: string;
-    url: string;
   };
 
 }

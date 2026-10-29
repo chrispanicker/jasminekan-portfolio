@@ -20,6 +20,14 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Project media
+
+Edit projects in the Sanity Studio at `/admin`. In a project's **Media** field, add **Image** entries for Sanity-hosted images and **Mux video** entries for videos. Drag entries by their handles to set the order shown on the site. Use **Download media** above the media list to download its Sanity images and legacy Sanity files together as a ZIP; this lets you retrieve old video files while migrating, but Mux videos are excluded. New Mux uploads use the **Basic** video quality level by default. Mux videos autoplay muted, loop, and hide their controls in the portfolio. Video playback is streamed from Mux; images continue to use Sanity. This setting does not change videos already uploaded to Mux.
+
+The first time you add a Mux video, the Studio asks you to connect a Mux API access token. Create a token in your Mux dashboard with permission to read and write video and read data, then enter it in the Studio prompt. The Mux plugin stores the credentials in the Sanity dataset's protected `secrets.mux` document; do not put them in frontend environment variables or commit them to the repository.
+
+Previously uploaded Sanity file videos remain available in the editor as **Legacy Sanity video (existing only)** and can still play on the site while you migrate them. For each one, upload a Mux video, reorder it into place, verify it plays, then remove the old file entry from the project.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
