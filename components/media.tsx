@@ -74,24 +74,30 @@ export const MediaItem = ({ mediaItem }: MediaItemProps) => {
     : `https://image.mux.com/${asset.playbackId}/thumbnail.jpg?time=${asset.thumbTime}`;
 
   return (
-    <MuxPlayer
-      key={mediaItem._key}
-      playbackId={asset.playbackId}
-      streamType="on-demand"
-      preload="none"
-      autoPlay
-      muted
-      loop
-      playsInline
-      poster={poster}
-      onCanPlay={() => setLoaded(true)}
-      style={{
-        height: "100%",
-        width: "auto",
-        aspectRatio,
-        "--controls": "none",
-      }}
-      className={`max-w-[100%] snap-center snap-always rounded-lg ${blurClass} ${transitionClass}`}
-    />
+    <div
+      className="relative h-full w-auto max-w-[100%] shrink-0 snap-center snap-always overflow-hidden rounded-lg"
+      style={{ aspectRatio, clipPath: "inset(0 round 0.5rem)" }}
+    >
+      <MuxPlayer
+        key={mediaItem._key}
+        playbackId={asset.playbackId}
+        streamType="on-demand"
+        preload="none"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={poster}
+        onCanPlay={() => setLoaded(true)}
+        style={{
+          height: "100%",
+          width: "100%",
+          clipPath: "inset(1px round 0.5rem)",
+          "--media-object-fit": "cover",
+          "--controls": "none",
+        }}
+        className={`h-full w-full ${blurClass} ${transitionClass}`}
+      />
+    </div>
   );
 }

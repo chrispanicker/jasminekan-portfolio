@@ -9,7 +9,7 @@ export const ProjectMedia = ({ project }: { project: Project }) => {
   const searchParams = useSearchParams();
   const projectSlug = searchParams.get("project");
   const isActive = projectSlug === project.slug.current;
-  const mediaHeight = "h-[40rem]";
+  const mediaHeight = "h-[min(40rem,75svh)]";
 
   return (
     <div className="relative">
